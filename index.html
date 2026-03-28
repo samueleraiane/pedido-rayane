@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Rayane 💖</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body, html {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* Tela inicial */
+    #tela1 {
+        background: #ff69b4;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-size: 28px;
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Tela principal */
+    #tela2 {
+        display: none;
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        background: linear-gradient(to bottom, #000000aa, #000000aa);
+    }
+
+    /* IMAGEM */
+    .bg-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        height: 95vh;
+        width: auto;
+
+        border-radius: 15px;
+        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+
+        z-index: -1;
+    }
+
+    /* CARD MAIS TRANSPARENTE */
+    .mensagem {
+        background: rgba(0,0,0,0.45); /* MAIS TRANSPARENTE */
+        backdrop-filter: blur(8px);   /* mais blur */
+        border: 1px solid rgba(255,255,255,0.2);
+
+        padding: 25px;
+        border-radius: 15px;
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+        animation: fadeIn 2s ease;
+        max-width: 70%;
+    }
+
+    .botoes {
+        display: flex;
+        gap: 20px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    #sim {
+        background: #00c853;
+        color: white;
+    }
+
+    #sim:hover {
+        background: #00a844;
+    }
+
+    #nao {
+        background: #d50000;
+        color: white;
+        position: relative;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: scale(0.8);}
+        to {opacity: 1; transform: scale(1);}
+    }
+</style>
+</head>
+
+<body>
+
+<div id="tela1">
+    💖 Rayane, preparei uma surpresa pra você... 💖
+</div>
+
+<div id="tela2">
+
+    <img src="foto.jpg" class="bg-img">
+
+    <div class="mensagem" id="mensagem">
+        Rayane... 💕<br><br>
+        O que a gente viveu é especial demais pra acabar assim...<br><br>
+        💖 Você aceita reatar comigo? 💖
+    </div>
+
+    <div class="botoes">
+        <button id="sim">SIM 💖</button>
+        <button id="nao">NÃO 💔</button>
+    </div>
+</div>
+
+<script>
+    setTimeout(() => {
+        document.getElementById("tela1").style.display = "none";
+        document.getElementById("tela2").style.display = "flex";
+    }, 3000);
+
+    document.getElementById("sim").onclick = function() {
+        document.getElementById("mensagem").innerHTML = 
+        "💖 Eu sabia!! 💖<br><br>Prometo fazer diferente e te fazer muito feliz! 🥰";
+        document.querySelector(".botoes").style.display = "none";
+    };
+
+    const btnNao = document.getElementById("nao");
+
+    btnNao.addEventListener("mouseover", () => {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+
+        btnNao.style.position = "absolute";
+        btnNao.style.left = x + "px";
+        btnNao.style.top = y + "px";
+    });
+</script>
+
+</body>
+</html>
